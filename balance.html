@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>balance</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f0e13;
+    --panel:#17151d;
+    --panel-2:#1e1b26;
+    --line:#2b2733;
+    --text:#ece9f2;
+    --muted:#8b859a;
+    --lilac:#b9a4e8;
+    --lilac-dim:#5f5478;
+    --good:#8fd6a8;
+    --bad:#ef5b5b;
+    --teal:#4fc3bb;
+    --teal-muted:#3d7d79;
+    --teal-dark:#0d2b29;
+    --grey-bar:#5a5568;
+    --lightblue:#8fc9e8;
+    --gold:#e0b84d;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Space Grotesk',sans-serif;
+    min-height:100vh;
+    padding:28px 18px 60px;
+  }
+  .wrap{max-width:520px;margin:0 auto;position:relative;z-index:1;}
+  header{margin-bottom:28px;}
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--lilac-dim);
+    margin-bottom:6px;
+  }
+  h1{
+    font-size:28px;
+    font-weight:700;
+    margin:0;
+    letter-spacing:-0.01em;
+    color:var(--lilac);
+  }
+  .section-heading{
+    font-size:20px;
+    font-weight:700;
+    margin:0 0 12px;
+    letter-spacing:-0.01em;
+    color:var(--lilac);
+  }
+  .sub{color:var(--muted);font-size:14px;margin-top:6px;}
+
+  .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px;
+    margin-bottom:16px;
+  }
+
+  #logCard{touch-action:pan-y;}
+  .day-viewport{
+    overflow:hidden;
+    position:relative;
+    touch-action:pan-y;
+    margin-bottom:12px;
+  }
+  .day-track{
+    display:flex;
+    width:300%;
+    will-change:transform;
+  }
+  .day-panel{
+    flex:0 0 33.3333%;
+    width:33.3333%;
+    box-sizing:border-box;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    height:26px;
+    font-family:'Space Mono',monospace;
+    font-size:14px;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+  #dateInput{
+    position:absolute;
+    width:1px;
+    height:1px;
+    opacity:0;
+    pointer-events:none;
+    border:none;
+  }
+  .date-label{
+    font-family:'Space Mono',monospace;
+    font-size:14px;
+    color:var(--text);
+    letter-spacing:0.02em;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+
+  .input-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:0;
+  }
+  .field label{
+    display:block;
+    font-family:'Space Mono',monospace;
+    font-size:9px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:5px;
+  }
+  .field input{
+    width:100%;
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    border-radius:7px;
+    padding:6px 8px;
+    color:var(--text);
+    font-family:'Space Mono',monospace;
+    font-size:13px;
+  }
+  .field input:focus{outline:none;border-color:var(--lilac);}
+
+  .balance-row{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    padding-top:14px;
+    border-top:1px dashed var(--line);
+  }
+  .balance-label{font-size:12px;color:var(--muted);font-family:'Space Mono',monospace;text-transform:uppercase;letter-spacing:0.08em;}
+  .balance-value{font-family:'Space Mono',monospace;font-size:22px;font-weight:700;}
+  .balance-value.deficit{color:var(--good);}
+  .balance-value.surplus{color:var(--bad);}
+  .balance-value.flat{color:var(--muted);}
+  .balance-value.under{color:var(--lightblue);}
+  .balance-value.in-range{color:var(--good);}
+  .balance-value.over{color:var(--bad);}
+
+  .stats-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-bottom:16px;
+  }
+  .stat{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:14px 12px;
+    text-align:center;
+  }
+  .stat-value{font-family:'Space Mono',monospace;font-size:18px;font-weight:700;}
+  .stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-top:4px;}
+
+  .chart-card{
+    padding:20px 16px 12px;
+  }
+  .chart-title{
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:14px;
+  }
+  .legend{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-bottom:16px;
+  }
+  .legend-group{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .legend-title{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--lilac-dim);
+    width:56px;
+    flex-shrink:0;
+  }
+  .legend-items{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .legend-item{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    color:var(--muted);
+  }
+  .legend-item i{width:9px;height:9px;border-radius:2px;flex-shrink:0;}
+  svg{display:block;width:100%;height:auto;}
+  .chart-viewport{overflow:hidden;position:relative;touch-action:pan-y;}
+  .chart-track{display:flex;width:300%;will-change:transform;}
+  .chart-panel{flex:0 0 33.3333%;width:33.3333%;box-sizing:border-box;padding:0 1px;}
+  .grid-line{stroke:var(--line);stroke-width:1;}
+  .bar-burned{fill:var(--grey-bar);}
+  .bar-lightblue{fill:var(--lightblue);}
+  .bar-green{fill:var(--good);}
+  .bar-red{fill:var(--bad);}
+  .axis-label{
+    fill:var(--muted);
+    font-family:'Space Mono',monospace;
+    font-size:14px;
+    opacity:0.7;
+  }
+  .day-label{
+    fill:var(--muted);
+    font-family:'Space Mono',monospace;
+    font-size:15px;
+  }
+  .day-group{cursor:pointer;}
+  .day-label-selected{
+    fill:var(--lilac);
+  }
+  .bar-selected{
+    stroke:var(--lilac);
+    stroke-width:1.4;
+  }
+  .empty-note{
+    color:var(--muted);
+    font-size:13px;
+    text-align:center;
+    padding:20px 0;
+  }
+
+  .week-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    color:#17151d;
+    padding:8px 12px;
+    border-radius:8px;
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    margin:14px 0 8px;
+  }
+  .week-header.under{background:var(--lightblue);}
+  .week-header.in-range{background:var(--good);}
+  .week-header.over{background:var(--bad);}
+  .week-header:first-child{margin-top:0;}
+
+  .log-list{display:flex;flex-direction:column;gap:8px;}
+  .log-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 12px;
+    background:var(--panel-2);
+    border-radius:10px;
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+  }
+  .log-date{color:var(--muted);}
+  .log-nums{color:var(--text);}
+  .log-bal{font-weight:700;}
+
+  footer{
+    text-align:center;
+    color:var(--lilac-dim);
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    margin-top:30px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">calories in / calories out</div>
+    <h1>balance</h1>
+    <div class="sub">one day at a time</div>
+  </header>
+
+  <div class="card chart-card">
+    <div class="chart-title" id="chartWeekLabel" style="text-align:center;">this week</div>
+    <div class="legend">
+      <div class="legend-group">
+        <span class="legend-title">cals out</span>
+        <div class="legend-items">
+          <span class="legend-item"><i style="background:var(--grey-bar);"></i></span>
+        </div>
+      </div>
+      <div class="legend-group">
+        <span class="legend-title">cals in</span>
+        <div class="legend-items">
+          <span class="legend-item"><i style="background:var(--lightblue);"></i>under</span>
+          <span class="legend-item"><i style="background:var(--good);"></i>in range</span>
+          <span class="legend-item"><i style="background:var(--bad);"></i>over</span>
+        </div>
+      </div>
+    </div>
+    <div class="chart-viewport" id="chartViewport">
+      <div class="chart-track" id="chartTrack">
+        <div class="chart-panel" id="panelPrev"></div>
+        <div class="chart-panel" id="panelCurrent"></div>
+        <div class="chart-panel" id="panelNext"></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-heading">log a day</h2>
+  <div class="card" id="logCard">
+    <div class="day-viewport" id="dayViewport">
+      <div class="day-track" id="dayTrack">
+        <div class="day-panel" id="dayPanelPrev"></div>
+        <div class="day-panel" id="dayPanelCurrent">
+          <span class="date-label" id="dateLabel"></span>
+        </div>
+        <div class="day-panel" id="dayPanelNext"></div>
+      </div>
+    </div>
+    <input type="date" id="dateInput" class="hidden-date-input">
+    <div class="input-grid">
+      <div class="field">
+        <label>eaten (kcal)</label>
+        <input type="number" id="eatenInput" inputmode="numeric" placeholder="0">
+      </div>
+      <div class="field">
+        <label>burned (kcal)</label>
+        <input type="number" id="burnedInput" inputmode="numeric" placeholder="0">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const STORAGE_KEY = 'balance-tracker-entries';
+
+const SEED_ENTRIES = {
+  "2026-07-31": { eaten: 2450, burned: 2000 },
+  "2026-08-01": { eaten: 1880, burned: 1900 },
+  "2026-08-02": { eaten: 1610, burned: 1700 },
+  "2026-08-03": { eaten: 1950, burned: 1980 },
+  "2026-08-04": { eaten: 3600, burned: 2900 },
+  "2026-08-05": { eaten: 4000, burned: 1800 },
+  "2026-08-06": { eaten: 2500, burned: 1900 },
+  "2026-08-07": { eaten: 2600, burned: 2650 },
+  "2026-08-08": { eaten: 2600, burned: 1950 },
+  "2026-08-09": { eaten: 2100, burned: 2600 },
+  "2026-08-10": { eaten: 4000, burned: 1950 },
+  "2026-08-11": { eaten: 2200, burned: 2350 },
+  "2026-08-12": { eaten: 3600, burned: 2750 }
+};
+
+function loadEntries(){
+  try{
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if(stored === null){
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(SEED_ENTRIES));
+      return { ...SEED_ENTRIES };
+    }
+    const parsed = JSON.parse(stored) || {};
+    if(parsed['2026-08-02'] && parsed['2026-08-02'].eaten === 1550){
+      parsed['2026-08-02'].eaten = 1610;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
+    }
+    return parsed;
+  }
+  catch(e){ return {}; }
+}
+function saveEntries(entries){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+}
+function formatLocalDate(d){
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+}
+function todayStr(){
+  return formatLocalDate(new Date());
+}
+function shiftDate(dateStr, days){
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const dt = new Date(y, m - 1, d);
+  dt.setDate(dt.getDate() + days);
+  return formatLocalDate(dt);
+}
+function fmtDayLabel(dateStr){
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString('en-GB', {weekday:'short'}).slice(0,2);
+}
+
+let entries = loadEntries();
+let currentDate = todayStr();
+
+const dateInput = document.getElementById('dateInput');
+const eatenInput = document.getElementById('eatenInput');
+const burnedInput = document.getElementById('burnedInput');
+
+function formatDayDisplay(dateStr){
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const dt = new Date(y, m - 1, d);
+  return dt.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }).toLowerCase().replace(',', '');
+}
+
+function renderDayForm(){
+  dateInput.value = currentDate;
+  document.getElementById('dateLabel').textContent = formatDayDisplay(currentDate);
+  document.getElementById('dayPanelPrev').textContent = formatDayDisplay(shiftDate(currentDate, -1));
+  document.getElementById('dayPanelNext').textContent = formatDayDisplay(shiftDate(currentDate, 1));
+  const e = entries[currentDate] || {};
+  eatenInput.value = e.eaten ?? '';
+  burnedInput.value = e.burned ?? '';
+  const vw = dayViewport.clientWidth;
+  setDayTrackX(-vw, false);
+  renderChart();
+}
+
+function persistCurrentInputs(){
+  const eaten = eatenInput.value === '' ? null : parseFloat(eatenInput.value);
+  const burned = burnedInput.value === '' ? null : parseFloat(burnedInput.value);
+  if(eaten === null && burned === null){
+    delete entries[currentDate];
+  } else {
+    entries[currentDate] = { eaten: eaten ?? 0, burned: burned ?? 0 };
+  }
+  saveEntries(entries);
+  renderChart();
+}
+
+eatenInput.addEventListener('input', () => { persistCurrentInputs(); });
+burnedInput.addEventListener('input', () => { persistCurrentInputs(); });
+
+dateInput.addEventListener('change', () => {
+  currentDate = dateInput.value || todayStr();
+  renderDayForm();
+});
+
+document.getElementById('dateLabel').addEventListener('click', () => {
+  if(dateInput.showPicker){
+    dateInput.showPicker();
+  } else {
+    dateInput.focus();
+    dateInput.click();
+  }
+});
+
+const dayViewport = document.getElementById('dayViewport');
+const dayTrack = document.getElementById('dayTrack');
+
+function setDayTrackX(px, animate){
+  dayTrack.style.transition = animate ? 'transform 0.28s cubic-bezier(0.22,0.61,0.36,1)' : 'none';
+  dayTrack.style.transform = `translateX(${px}px)`;
+}
+
+function goToDay(direction, animate){
+  const vw = dayViewport.clientWidth;
+  const targetX = direction === 1 ? -2 * vw : 0;
+  if(!animate){
+    currentDate = shiftDate(currentDate, direction);
+    renderDayForm();
+    return;
+  }
+  setDayTrackX(targetX, true);
+  const onEnd = () => {
+    dayTrack.removeEventListener('transitionend', onEnd);
+    currentDate = shiftDate(currentDate, direction);
+    renderDayForm();
+  };
+  dayTrack.addEventListener('transitionend', onEnd);
+}
+
+function snapDayBack(){
+  setDayTrackX(-dayViewport.clientWidth, true);
+}
+
+(function setupDaySwipe(){
+  let startX = 0, startY = 0, dragging = false, dx = 0, vw = 0, axisLocked = null;
+  const swipeTarget = document.getElementById('logCard');
+
+  swipeTarget.addEventListener('touchstart', (e) => {
+    if(e.touches.length !== 1) return;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    dx = 0;
+    axisLocked = null;
+    vw = dayViewport.clientWidth;
+    dragging = true;
+  }, { passive: true });
+
+  swipeTarget.addEventListener('touchmove', (e) => {
+    if(!dragging) return;
+    const curX = e.touches[0].clientX;
+    const curY = e.touches[0].clientY;
+    const moveX = curX - startX;
+    const moveY = curY - startY;
+    if(axisLocked === null && (Math.abs(moveX) > 6 || Math.abs(moveY) > 6)){
+      axisLocked = Math.abs(moveX) > Math.abs(moveY) ? 'x' : 'y';
+    }
+    if(axisLocked === 'x'){
+      dx = moveX;
+      setDayTrackX(-vw + dx, false);
+    }
+  }, { passive: true });
+
+  swipeTarget.addEventListener('touchend', () => {
+    if(!dragging) return;
+    dragging = false;
+    if(axisLocked !== 'x'){ return; }
+    const threshold = Math.min(60, vw * 0.16);
+    if(dx <= -threshold){
+      goToDay(1, true);
+    } else if(dx >= threshold){
+      goToDay(-1, true);
+    } else {
+      snapDayBack();
+    }
+    dx = 0;
+  }, { passive: true });
+})();
+
+window.addEventListener('resize', () => setDayTrackX(-dayViewport.clientWidth, false));
+
+function eatenBarClass(eaten, burned){
+  const diff = eaten - burned;
+  if(diff <= -50) return 'bar-lightblue';
+  if(diff >= 50) return 'bar-red';
+  return 'bar-green';
+}
+
+function getSunday(dateStr){
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const dt = new Date(y, m - 1, d);
+  dt.setDate(dt.getDate() - dt.getDay());
+  return formatLocalDate(dt);
+}
+
+let chartWeekStart = getSunday(todayStr());
+
+function weekLabelFor(weekStart){
+  const thisSunday = getSunday(todayStr());
+  const lastSunday = shiftDate(thisSunday, -7);
+  const dateRange = `${fmtDate(weekStart)} – ${fmtDate(shiftDate(weekStart, 6))}`;
+  if(weekStart === thisSunday) return `This week · ${dateRange}`;
+  if(weekStart === lastSunday) return `Last week · ${dateRange}`;
+  return dateRange;
+}
+
+function buildWeekPanel(weekStart){
+  const days = [];
+  for(let i = 0; i < 7; i++){
+    days.push(shiftDate(weekStart, i));
+  }
+  const dayEntries = days.map(d => entries[d] || null);
+  const known = dayEntries.filter(e => e !== null);
+
+  const maxVal = known.length === 0
+    ? 2000
+    : Math.max(1800, ...known.map(e => Math.max(e.eaten, e.burned)));
+  const width = 500, height = 430;
+  const padTop = 20, padBottom = 32, padLeft = 34, padRight = 10;
+  const groupGap = 10;
+  const barGapInner = 1.8;
+  const barWidthFraction = 0.27;
+  const groupWidth = (width - padLeft - padRight - groupGap*(days.length-1)) / days.length;
+  const barWidth = groupWidth * barWidthFraction;
+  const pairWidth = barWidth * 2 + barGapInner;
+  const pairOffset = (groupWidth - pairWidth) / 2;
+  const chartHeight = height - padTop - padBottom;
+  const scale = chartHeight / maxVal;
+  const baseline = height - padBottom;
+
+  let bars = '';
+  let gridLines = '';
+  let axisLabels = '';
+  for(let v = 1000; v <= maxVal; v += 1000){
+    const y = baseline - v * scale;
+    gridLines += `<line class="grid-line" x1="${padLeft}" y1="${y}" x2="${width-padRight}" y2="${y}"></line>`;
+    axisLabels += `<text class="axis-label" x="${padLeft - 6}" y="${y + 3}" text-anchor="end">${v/1000}k</text>`;
+  }
+
+  days.forEach((d, i) => {
+    const gx = padLeft + i * (groupWidth + groupGap);
+    const e = dayEntries[i];
+    const isSelected = d === currentDate;
+    let dayMarkup = '';
+    if(e !== null){
+      const burnedH = Math.max(e.burned * scale, 1.5);
+      const eatenH = Math.max(e.eaten * scale, 1.5);
+      const eatenCls = eatenBarClass(e.eaten, e.burned);
+      const eatenX = gx + pairOffset;
+      const burnedX = eatenX + barWidth + barGapInner;
+      const highlightCls = isSelected ? ' bar-selected' : '';
+      dayMarkup += `<rect class="bar-burned${highlightCls}" x="${burnedX}" y="${baseline - burnedH}" width="${barWidth}" height="${burnedH}" rx="2"></rect>`;
+      dayMarkup += `<rect class="${eatenCls}${highlightCls}" x="${eatenX}" y="${baseline - eatenH}" width="${barWidth}" height="${eatenH}" rx="2"></rect>`;
+    }
+    const labelCls = isSelected ? 'day-label day-label-selected' : 'day-label';
+    dayMarkup += `<text class="${labelCls}" x="${gx + groupWidth/2}" y="${height - 4}" text-anchor="middle">${fmtDayLabel(d).toLowerCase()}</text>`;
+    bars += `<g class="day-group" data-date="${d}">
+      <rect x="${gx}" y="${padTop}" width="${groupWidth}" height="${height - padTop}" fill="transparent"></rect>
+      ${dayMarkup}
+    </g>`;
+  });
+
+  return `
+  <svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
+    ${gridLines}
+    ${axisLabels}
+    ${bars}
+  </svg>`;
+}
+
+const chartViewport = document.getElementById('chartViewport');
+const chartTrack = document.getElementById('chartTrack');
+const panelPrev = document.getElementById('panelPrev');
+const panelCurrent = document.getElementById('panelCurrent');
+const panelNext = document.getElementById('panelNext');
+
+chartTrack.addEventListener('click', (e) => {
+  const target = e.target.closest('[data-date]');
+  if(!target) return;
+  const date = target.getAttribute('data-date');
+  if(date && date !== currentDate){
+    currentDate = date;
+    renderDayForm();
+  }
+});
+
+function setTrackX(px, animate){
+  chartTrack.style.transition = animate ? 'transform 0.28s cubic-bezier(0.22,0.61,0.36,1)' : 'none';
+  chartTrack.style.transform = `translateX(${px}px)`;
+}
+
+function renderChart(){
+  document.getElementById('chartWeekLabel').textContent = weekLabelFor(chartWeekStart);
+  panelPrev.innerHTML = buildWeekPanel(shiftDate(chartWeekStart, -7));
+  panelCurrent.innerHTML = buildWeekPanel(chartWeekStart);
+  panelNext.innerHTML = buildWeekPanel(shiftDate(chartWeekStart, 7));
+  const vw = chartViewport.clientWidth;
+  setTrackX(-vw, false);
+}
+
+function goToWeek(direction, animate){
+  // direction: -1 for previous, 1 for next
+  const vw = chartViewport.clientWidth;
+  const targetX = direction === 1 ? -2 * vw : 0;
+  if(!animate){
+    chartWeekStart = shiftDate(chartWeekStart, 7 * direction);
+    renderChart();
+    return;
+  }
+  setTrackX(targetX, true);
+  const onEnd = () => {
+    chartTrack.removeEventListener('transitionend', onEnd);
+    chartWeekStart = shiftDate(chartWeekStart, 7 * direction);
+    renderChart();
+  };
+  chartTrack.addEventListener('transitionend', onEnd);
+}
+
+function snapBack(){
+  const vw = chartViewport.clientWidth;
+  setTrackX(-vw, true);
+}
+
+(function setupSwipe(){
+  let startX = 0, startY = 0, dragging = false, dx = 0, vw = 0, axisLocked = null;
+
+  chartViewport.addEventListener('touchstart', (e) => {
+    if(e.touches.length !== 1) return;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    dx = 0;
+    axisLocked = null;
+    vw = chartViewport.clientWidth;
+    dragging = true;
+  }, { passive: true });
+
+  chartViewport.addEventListener('touchmove', (e) => {
+    if(!dragging) return;
+    const curX = e.touches[0].clientX;
+    const curY = e.touches[0].clientY;
+    const moveX = curX - startX;
+    const moveY = curY - startY;
+    if(axisLocked === null && (Math.abs(moveX) > 6 || Math.abs(moveY) > 6)){
+      axisLocked = Math.abs(moveX) > Math.abs(moveY) ? 'x' : 'y';
+    }
+    if(axisLocked === 'x'){
+      dx = moveX;
+      setTrackX(-vw + dx, false);
+    }
+  }, { passive: true });
+
+  chartViewport.addEventListener('touchend', () => {
+    if(!dragging) return;
+    dragging = false;
+    if(axisLocked !== 'x'){ return; }
+    const threshold = Math.min(70, vw * 0.16);
+    if(dx <= -threshold){
+      goToWeek(1, true);
+    } else if(dx >= threshold){
+      goToWeek(-1, true);
+    } else {
+      snapBack();
+    }
+    dx = 0;
+  }, { passive: true });
+})();
+
+window.addEventListener('resize', () => setTrackX(-chartViewport.clientWidth, false));
+
+function fmtDate(dateStr){
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString('en-GB', {day:'numeric', month:'short'});
+}
+
+renderDayForm();
+</script>
+</body>
+</html>
